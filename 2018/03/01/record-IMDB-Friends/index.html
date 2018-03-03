@@ -30,8 +30,8 @@
 
 <script>
     (function(){
-        if('pass'){
-            if (prompt('请输入文章密码') !== 'pass'){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
                 alert('密码错误！');
                 history.back();
             }
@@ -99,7 +99,7 @@
 
 
 
-  <meta name="keywords" content="测试," />
+  <meta name="keywords" content="聊天系统 用户管理," />
 
 
 
@@ -112,18 +112,27 @@
 
 
 
-<meta name="description" content="This is my first MarkDown">
-<meta name="keywords" content="测试">
+<meta name="description" content="本文是作者对于近期工作的记录，抛砖引玉，希望大家多多指正。    首先是原型设计：       由于开发的是整个项目的一个模块，很多关系发生了改变，下面逐一叙述。  用户由于已经有客户表格如下：基于模块间相互独立的原则，重新设计user表与之关联，并补充社交信息中需要的字段： 字典用于定义社交中固定会出现的词语。由于内容过少，将用户自定义的分组信息也整合到了该表中。以后可能会视情况拆开~注：这">
+<meta name="keywords" content="聊天系统 用户管理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="https://arthurjp.github.io/2018/02/17/test/index.html">
+<meta property="og:title" content="记录：开发聊天系统用户管理">
+<meta property="og:url" content="https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/index.html">
 <meta property="og:site_name" content="Arthur`s Blog">
-<meta property="og:description" content="This is my first MarkDown">
+<meta property="og:description" content="本文是作者对于近期工作的记录，抛砖引玉，希望大家多多指正。    首先是原型设计：       由于开发的是整个项目的一个模块，很多关系发生了改变，下面逐一叙述。  用户由于已经有客户表格如下：基于模块间相互独立的原则，重新设计user表与之关联，并补充社交信息中需要的字段： 字典用于定义社交中固定会出现的词语。由于内容过少，将用户自定义的分组信息也整合到了该表中。以后可能会视情况拆开~注：这">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-03T02:55:02.828Z">
+<meta property="og:image" content="https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/IMdemo.png">
+<meta property="og:image" content="https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/property_woner.png">
+<meta property="og:image" content="https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/owner_info.png">
+<meta property="og:image" content="https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/dict.png">
+<meta property="og:image" content="https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/friends.png">
+<meta property="og:image" content="https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/friendsBean.png">
+<meta property="og:image" content="https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/friendsService.png">
+<meta property="og:image" content="https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/view.png">
+<meta property="og:updated_time" content="2018-03-03T02:39:39.864Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="test">
-<meta name="twitter:description" content="This is my first MarkDown">
+<meta name="twitter:title" content="记录：开发聊天系统用户管理">
+<meta name="twitter:description" content="本文是作者对于近期工作的记录，抛砖引玉，希望大家多多指正。    首先是原型设计：       由于开发的是整个项目的一个模块，很多关系发生了改变，下面逐一叙述。  用户由于已经有客户表格如下：基于模块间相互独立的原则，重新设计user表与之关联，并补充社交信息中需要的字段： 字典用于定义社交中固定会出现的词语。由于内容过少，将用户自定义的分组信息也整合到了该表中。以后可能会视情况拆开~注：这">
+<meta name="twitter:image" content="https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/IMdemo.png">
 
 
 
@@ -153,13 +162,13 @@
 
 
 
-  <link rel="canonical" href="https://arthurjp.github.io/2018/02/17/test/"/>
+  <link rel="canonical" href="https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/"/>
 
 
 
 
 
-  <title>test | Arthur`s Blog</title>
+  <title>记录：开发聊天系统用户管理 | Arthur`s Blog</title>
   
 
 
@@ -300,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://arthurjp.github.io/2018/02/17/test/">
+    <link itemprop="mainEntityOfPage" href="https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ArthurJP">
@@ -317,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">test</h1>
+          <h1 class="post-title" itemprop="name headline">记录：开发聊天系统用户管理</h1>
         
 
         <div class="post-meta">
@@ -329,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-17T11:37:45+08:00">
-                2018-02-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-01T10:27:21+08:00">
+                2018-03-01
               </time>
             
 
@@ -352,8 +361,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/测试/" itemprop="url" rel="index">
-                    <span itemprop="name">测试</span>
+                  <a href="/categories/记录/" itemprop="url" rel="index">
+                    <span itemprop="name">记录</span>
                   </a>
                 </span>
 
@@ -370,8 +379,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/02/17/test/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/02/17/test/" itemprop="commentCount"></span>
+                <a href="/2018/03/01/record-IMDB-Friends/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/01/record-IMDB-Friends/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -393,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5
+                  524
                 </span>
               
 
@@ -409,7 +418,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -430,7 +439,25 @@
       
 
       
-        <h1 id="This-is-my-first-MarkDown"><a href="#This-is-my-first-MarkDown" class="headerlink" title="This is my first MarkDown"></a>This is my first MarkDown</h1>
+        <blockquote>
+<p> 本文是作者对于近期工作的记录，抛砖引玉，希望大家多多指正。</p>
+</blockquote>
+<p>  首先是原型设计：<br>    <img src="/2018/03/01/record-IMDB-Friends/IMdemo.png" alt="IMDB"></p>
+<p>  由于开发的是整个项目的一个模块，很多关系发生了改变，下面逐一叙述。</p>
+<ul>
+<li>用户<br>由于已经有客户表格如下：<br><img src="/2018/03/01/record-IMDB-Friends/property_woner.png" alt="用户表"><br>基于模块间相互独立的原则，重新设计user表与之关联，并补充社交信息中需要的字段：<br><img src="/2018/03/01/record-IMDB-Friends/owner_info.png" alt="用户表"></li>
+<li><p>字典<br>用于定义社交中固定会出现的词语。由于内容过少，将用户自定义的分组信息也整合到了该表中。以后可能会视情况拆开~<br><img src="/2018/03/01/record-IMDB-Friends/dict.png" alt="字典表"><br>注：这里id为system的数据由系统维护。在user表中自己添加了system这个id，切记不要允许客户端传入这么短的id值。</p>
+</li>
+<li><p>好友<br>用于定义好友关系。这里为了方便io最大的查询操作，采用有向图的设计方式，并用view简化代码。<br><img src="/2018/03/01/record-IMDB-Friends/friends.png" alt="好友表"><br>好友表采用双主键设计，防止好友已经存在而多次添加的bug。另外这里有个小技巧，使用trigger来将用户名字自动设置为备注（remark）,代码如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">delimiter !</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> auto_set_remark <span class="keyword">BEFORE</span> <span class="keyword">INSERT</span> <span class="keyword">ON</span> im_friends <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">IF</span> new.remark <span class="keyword">IS</span> <span class="literal">NULL</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="keyword">SET</span> new.remark = (</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		<span class="keyword">NAME</span></span><br><span class="line">	<span class="keyword">FROM</span></span><br><span class="line">		property_owner</span><br><span class="line">	<span class="keyword">WHERE</span></span><br><span class="line">		<span class="keyword">id</span> = new.friend_id</span><br><span class="line">);</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">IF</span> ;</span><br><span class="line"><span class="keyword">END</span>!</span><br><span class="line">delimiter ;</span><br></pre></td></tr></table></figure>
+<p>如果像我这样设计，代码将会比较简单这里给出FriendsBean和FriendsService的关键代码：<br><img src="/2018/03/01/record-IMDB-Friends/friendsBean.png" alt="FriendsBean"><br><img src="/2018/03/01/record-IMDB-Friends/friendsService.png" alt="FriendsService"></p>
+<p>最后整合为view的形式返回给前端：<br><img src="/2018/03/01/record-IMDB-Friends/view.png" alt="view"></p>
+<p>视图创建代码：</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="symbol">`a`</span>.<span class="symbol">`user_id`</span> <span class="keyword">AS</span> <span class="symbol">`user_id`</span>,</span><br><span class="line">	<span class="symbol">`a`</span>.<span class="symbol">`friend_id`</span> <span class="keyword">AS</span> <span class="symbol">`friend_id`</span>,</span><br><span class="line">	<span class="symbol">`b`</span>.<span class="symbol">`name`</span> <span class="keyword">AS</span> <span class="symbol">`friend_name`</span>,</span><br><span class="line">	<span class="symbol">`a`</span>.<span class="symbol">`remark`</span> <span class="keyword">AS</span> <span class="symbol">`friend_remark`</span>,</span><br><span class="line">	<span class="symbol">`b`</span>.<span class="symbol">`avatar`</span> <span class="keyword">AS</span> <span class="symbol">`friend_avatar`</span>,</span><br><span class="line">	<span class="symbol">`c`</span>.<span class="symbol">`value`</span> <span class="keyword">AS</span> <span class="symbol">`group_name`</span>,</span><br><span class="line">	<span class="symbol">`a`</span>.<span class="symbol">`group_id`</span> <span class="keyword">AS</span> <span class="symbol">`group_id`</span>,</span><br><span class="line">	<span class="symbol">`d`</span>.<span class="symbol">`value`</span> <span class="keyword">AS</span> <span class="symbol">`status`</span>,</span><br><span class="line">	<span class="symbol">`a`</span>.<span class="symbol">`status_id`</span> <span class="keyword">AS</span> <span class="symbol">`status_id`</span>,</span><br><span class="line">	<span class="symbol">`a`</span>.<span class="symbol">`create_date`</span> <span class="keyword">AS</span> <span class="symbol">`create_date`</span>,</span><br><span class="line">	<span class="symbol">`a`</span>.<span class="symbol">`update_date`</span> <span class="keyword">AS</span> <span class="symbol">`update_date`</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	(</span><br><span class="line">		(</span><br><span class="line">			(</span><br><span class="line">				<span class="symbol">`im_friends`</span> <span class="symbol">`a`</span></span><br><span class="line">				<span class="keyword">JOIN</span> <span class="symbol">`property_owner`</span> <span class="symbol">`b`</span></span><br><span class="line">			)</span><br><span class="line">			<span class="keyword">JOIN</span> <span class="symbol">`im_dict`</span> <span class="symbol">`c`</span></span><br><span class="line">		)</span><br><span class="line">		<span class="keyword">JOIN</span> <span class="symbol">`im_dict`</span> <span class="symbol">`d`</span></span><br><span class="line">	)</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	(</span><br><span class="line">		(<span class="symbol">`a`</span>.<span class="symbol">`friend_id`</span> = <span class="symbol">`b`</span>.<span class="symbol">`id`</span>)</span><br><span class="line">		<span class="keyword">AND</span> (<span class="symbol">`a`</span>.<span class="symbol">`group_id`</span> = <span class="symbol">`c`</span>.<span class="symbol">`id`</span>)</span><br><span class="line">		<span class="keyword">AND</span> (<span class="symbol">`a`</span>.<span class="symbol">`status_id`</span> = <span class="symbol">`d`</span>.<span class="symbol">`id`</span>)</span><br><span class="line">	)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line">	<span class="symbol">`a`</span>.<span class="symbol">`user_id`</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>  <strong>至此用户关系就算基本完成了，以后可能还会改进~</strong></p>
+
       
     </div>
     
@@ -457,12 +484,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/02/17/test/">test</a></p>
+  <p><span>本文标题:</span><a href="/2018/03/01/record-IMDB-Friends/">记录：开发聊天系统用户管理</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 ArthurJP 的个人博客">ArthurJP</a></p>
-  <p><span>发布时间:</span>2018年02月17日 - 11:02</p>
+  <p><span>发布时间:</span>2018年03月01日 - 10:03</p>
   <p><span>最后更新:</span>2018年03月03日 - 10:03</p>
-  <p><span>原始链接:</span><a href="/2018/02/17/test/" title="test">https://arthurjp.github.io/2018/02/17/test/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arthurjp.github.io/2018/02/17/test/"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/2018/03/01/record-IMDB-Friends/" title="记录：开发聊天系统用户管理">https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
 </div>
@@ -494,7 +521,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/测试/" rel="tag"># 测试</a>
+            <a href="/tags/聊天系统-用户管理/" rel="tag"># 聊天系统 用户管理</a>
           
         </div>
       
@@ -507,14 +534,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/02/17/test/" rel="next" title="test">
+                <i class="fa fa-chevron-left"></i> test
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/01/record-IMDB-Friends/" rel="prev" title="记录：开发聊天系统用户管理">
-                记录：开发聊天系统用户管理 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/03/简历/" rel="prev" title="简历">
+                简历 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -596,17 +627,8 @@ var jiathis_config={
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -673,22 +695,6 @@ var jiathis_config={
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#This-is-my-first-MarkDown"><span class="nav-number">1.</span> <span class="nav-text">This is my first MarkDown</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

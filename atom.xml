@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://arthurjp.github.io/"/>
-  <updated>2018-02-17T03:39:58.815Z</updated>
+  <updated>2018-03-03T03:46:00.463Z</updated>
   <id>https://arthurjp.github.io/</id>
   
   <author>
@@ -17,11 +17,70 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>简历</title>
+    <link href="https://arthurjp.github.io/2018/03/03/%E7%AE%80%E5%8E%86/"/>
+    <id>https://arthurjp.github.io/2018/03/03/简历/</id>
+    <published>2018-03-03T02:47:46.000Z</published>
+    <updated>2018-03-03T03:46:00.463Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>请询问作者获得密码!</p></blockquote><div class="row">    <embed src="/documents/resume.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;请询问作者获得密码!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+	&lt;div class=&quot;row&quot;&gt;
+    &lt;embed src=&quot;/documents/resume.pdf&quot; width=&quot;100%&quot; height=&quot;550&quot; type=&quot;app
+      
+    
+    </summary>
+    
+      <category term="Resume" scheme="https://arthurjp.github.io/categories/Resume/"/>
+    
+    
+      <category term="Resume" scheme="https://arthurjp.github.io/tags/Resume/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记录：开发聊天系统用户管理</title>
+    <link href="https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/"/>
+    <id>https://arthurjp.github.io/2018/03/01/record-IMDB-Friends/</id>
+    <published>2018-03-01T02:27:21.000Z</published>
+    <updated>2018-03-03T02:39:39.864Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p> 本文是作者对于近期工作的记录，抛砖引玉，希望大家多多指正。</p></blockquote><p>  首先是原型设计：<br>    <img src="/2018/03/01/record-IMDB-Friends/IMdemo.png" alt="IMDB"></p><p>  由于开发的是整个项目的一个模块，很多关系发生了改变，下面逐一叙述。</p><ul><li>用户<br>由于已经有客户表格如下：<br><img src="/2018/03/01/record-IMDB-Friends/property_woner.png" alt="用户表"><br>基于模块间相互独立的原则，重新设计user表与之关联，并补充社交信息中需要的字段：<br><img src="/2018/03/01/record-IMDB-Friends/owner_info.png" alt="用户表"></li><li><p>字典<br>用于定义社交中固定会出现的词语。由于内容过少，将用户自定义的分组信息也整合到了该表中。以后可能会视情况拆开~<br><img src="/2018/03/01/record-IMDB-Friends/dict.png" alt="字典表"><br>注：这里id为system的数据由系统维护。在user表中自己添加了system这个id，切记不要允许客户端传入这么短的id值。</p></li><li><p>好友<br>用于定义好友关系。这里为了方便io最大的查询操作，采用有向图的设计方式，并用view简化代码。<br><img src="/2018/03/01/record-IMDB-Friends/friends.png" alt="好友表"><br>好友表采用双主键设计，防止好友已经存在而多次添加的bug。另外这里有个小技巧，使用trigger来将用户名字自动设置为备注（remark）,代码如下：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">delimiter !</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> auto_set_remark <span class="keyword">BEFORE</span> <span class="keyword">INSERT</span> <span class="keyword">ON</span> im_friends <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">IF</span> new.remark <span class="keyword">IS</span> <span class="literal">NULL</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="keyword">SET</span> new.remark = (</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line"><span class="keyword">NAME</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">property_owner</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line"><span class="keyword">id</span> = new.friend_id</span><br><span class="line">);</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">IF</span> ;</span><br><span class="line"><span class="keyword">END</span>!</span><br><span class="line">delimiter ;</span><br></pre></td></tr></table></figure><p>如果像我这样设计，代码将会比较简单这里给出FriendsBean和FriendsService的关键代码：<br><img src="/2018/03/01/record-IMDB-Friends/friendsBean.png" alt="FriendsBean"><br><img src="/2018/03/01/record-IMDB-Friends/friendsService.png" alt="FriendsService"></p><p>最后整合为view的形式返回给前端：<br><img src="/2018/03/01/record-IMDB-Friends/view.png" alt="view"></p><p>视图创建代码：</p><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line"><span class="symbol">`a`</span>.<span class="symbol">`user_id`</span> <span class="keyword">AS</span> <span class="symbol">`user_id`</span>,</span><br><span class="line"><span class="symbol">`a`</span>.<span class="symbol">`friend_id`</span> <span class="keyword">AS</span> <span class="symbol">`friend_id`</span>,</span><br><span class="line"><span class="symbol">`b`</span>.<span class="symbol">`name`</span> <span class="keyword">AS</span> <span class="symbol">`friend_name`</span>,</span><br><span class="line"><span class="symbol">`a`</span>.<span class="symbol">`remark`</span> <span class="keyword">AS</span> <span class="symbol">`friend_remark`</span>,</span><br><span class="line"><span class="symbol">`b`</span>.<span class="symbol">`avatar`</span> <span class="keyword">AS</span> <span class="symbol">`friend_avatar`</span>,</span><br><span class="line"><span class="symbol">`c`</span>.<span class="symbol">`value`</span> <span class="keyword">AS</span> <span class="symbol">`group_name`</span>,</span><br><span class="line"><span class="symbol">`a`</span>.<span class="symbol">`group_id`</span> <span class="keyword">AS</span> <span class="symbol">`group_id`</span>,</span><br><span class="line"><span class="symbol">`d`</span>.<span class="symbol">`value`</span> <span class="keyword">AS</span> <span class="symbol">`status`</span>,</span><br><span class="line"><span class="symbol">`a`</span>.<span class="symbol">`status_id`</span> <span class="keyword">AS</span> <span class="symbol">`status_id`</span>,</span><br><span class="line"><span class="symbol">`a`</span>.<span class="symbol">`create_date`</span> <span class="keyword">AS</span> <span class="symbol">`create_date`</span>,</span><br><span class="line"><span class="symbol">`a`</span>.<span class="symbol">`update_date`</span> <span class="keyword">AS</span> <span class="symbol">`update_date`</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">(</span><br><span class="line">(</span><br><span class="line">(</span><br><span class="line"><span class="symbol">`im_friends`</span> <span class="symbol">`a`</span></span><br><span class="line"><span class="keyword">JOIN</span> <span class="symbol">`property_owner`</span> <span class="symbol">`b`</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">JOIN</span> <span class="symbol">`im_dict`</span> <span class="symbol">`c`</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">JOIN</span> <span class="symbol">`im_dict`</span> <span class="symbol">`d`</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">(</span><br><span class="line">(<span class="symbol">`a`</span>.<span class="symbol">`friend_id`</span> = <span class="symbol">`b`</span>.<span class="symbol">`id`</span>)</span><br><span class="line"><span class="keyword">AND</span> (<span class="symbol">`a`</span>.<span class="symbol">`group_id`</span> = <span class="symbol">`c`</span>.<span class="symbol">`id`</span>)</span><br><span class="line"><span class="keyword">AND</span> (<span class="symbol">`a`</span>.<span class="symbol">`status_id`</span> = <span class="symbol">`d`</span>.<span class="symbol">`id`</span>)</span><br><span class="line">)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line"><span class="symbol">`a`</span>.<span class="symbol">`user_id`</span></span><br></pre></td></tr></table></figure></li></ul><p>  <strong>至此用户关系就算基本完成了，以后可能还会改进~</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt; 本文是作者对于近期工作的记录，抛砖引玉，希望大家多多指正。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  首先是原型设计：&lt;br&gt;    &lt;img src=&quot;/2018/03/01/record-IMDB-Friends/IMdemo.png&quot; 
+      
+    
+    </summary>
+    
+      <category term="记录" scheme="https://arthurjp.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="聊天系统 用户管理" scheme="https://arthurjp.github.io/tags/%E8%81%8A%E5%A4%A9%E7%B3%BB%E7%BB%9F-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>test</title>
     <link href="https://arthurjp.github.io/2018/02/17/test/"/>
     <id>https://arthurjp.github.io/2018/02/17/test/</id>
     <published>2018-02-17T03:37:45.000Z</published>
-    <updated>2018-02-17T03:39:58.815Z</updated>
+    <updated>2018-03-03T02:55:02.828Z</updated>
     
     <content type="html"><![CDATA[<h1 id="This-is-my-first-MarkDown"><a href="#This-is-my-first-MarkDown" class="headerlink" title="This is my first MarkDown"></a>This is my first MarkDown</h1>]]></content>
     
